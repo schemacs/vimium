@@ -90,6 +90,7 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) ->
 # because window.location doesn't know anything about the Chrome-specific "view-source:".
 #
 getCurrentTabUrl = (request, sender) -> sender.tab.url
+getCurrentTabTitle = (request, sender) -> sender.tab.title
 
 #
 # Checks the user's preferences in local storage to determine if Vimium is enabled for the given URL, and
@@ -654,6 +655,7 @@ portHandlers =
 sendRequestHandlers =
   getCompletionKeys: getCompletionKeysRequest
   getCurrentTabUrl: getCurrentTabUrl
+  getCurrentTabTitle: getCurrentTabTitle
   openUrlInNewTab: openUrlInNewTab
   openUrlInIncognito: openUrlInIncognito
   openUrlInCurrentTab: openUrlInCurrentTab
